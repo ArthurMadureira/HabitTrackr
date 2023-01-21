@@ -12,7 +12,8 @@ export function ProgressBar(props: ProgressBarProps) {
         className="h-3 rounded-xl bg-violet-600"
         style={{
           width: `${props.progress}%`,
-          maxWidth: '100%'
+          maxWidth: '100%',
+          transition: 'all .2s ease-out'
         }}
       />
     </div>
