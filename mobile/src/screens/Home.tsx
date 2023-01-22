@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, Alert } from 'react-native'
 
-import { useNavigation } from '@react-navigation/native'
-import { useEffect, useState } from 'react'
+import { useNavigation, useFocusEffect } from '@react-navigation/native'
+import { useCallback, useState } from 'react'
 
 import { Loading } from '../components/Loading'
 import { api } from '../lib/axios'
@@ -32,7 +32,7 @@ export function Home() {
 
   async function fetchData() {
     try {
-      // setLoading(true)
+      setLoading(true)
       setLoading(false)
       const response = await api.get('summary')
 
@@ -46,9 +46,9 @@ export function Home() {
     }
   }
 
-  useEffect(() => {
+  useFocusEffect(useCallback(() => {
     fetchData()
-  }, [])
+  }, []))
 
   if (loading) {
     return (

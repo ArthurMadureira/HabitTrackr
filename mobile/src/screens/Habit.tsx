@@ -64,10 +64,17 @@ export function Habit() {
   }
 
   async function handleToggleHabit(habitId: string) {
-    if (completed.includes(habitId)) {
-      setCompleted(prevState => prevState.filter(id => id !== habitId))
-    } else {
-      setCompleted(prevState => [...prevState, habitId])
+    try {
+      await api.patch(`habits/${habitId}/toggle`)
+
+      if (completed.includes(habitId)) {
+        setCompleted(prevState => prevState.filter(id => id !== habitId))
+      } else {
+        setCompleted(prevState => [...prevState, habitId])
+      }
+    } catch (error) {
+      console.log(error)
+      Alert.alert('Oops', 'unable to update habit status')
     }
   }
 
