@@ -39,7 +39,7 @@ export function Home() {
       setSummary(response.data)
 
     } catch (error) {
-      // Alert.alert('Oops', 'Unable to load habit summary')
+      Alert.alert('Oops', 'Unable to load habit summary')
       console.log(error)
     } finally {
       setLoading(false)

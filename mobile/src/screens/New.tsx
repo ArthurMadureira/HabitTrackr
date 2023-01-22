@@ -72,16 +72,15 @@ export function New() {
         </Text>
 
         {
-          availableWeekDays.map((weekDay, i) => (
+          availableWeekDays.map((weekDay, index) => (
             <Checkbox
               key={weekDay}
               title={weekDay}
-              checked={weekDays.includes(i)}
-              onPress={() => handleToggleWeekDay(i)}
+              checked={weekDays.includes(index)}
+              onPress={() => handleToggleWeekDay(index)}
             />
           ))
         }
-
         <TouchableOpacity
           className="w-full h-14 flex-row items-center justify-center bg-green-600  rounded-md mt-6"
           activeOpacity={0.7}
@@ -92,6 +91,7 @@ export function New() {
             size={20}
             color={colors.white}
           />
+
 
           <Text className="font-semibold text-base text-white ml-2">
             Confirm
